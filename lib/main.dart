@@ -23,6 +23,8 @@ class _SumOfNumbersScreenState extends State<SumOfNumbersScreen> {
   TextEditingController num4Controller = TextEditingController();
   String result = '';
   String result2 = '';
+  String result3 = '';
+  String result4 = '';
 
   void calculateSum() {
     setState(() {
@@ -31,7 +33,7 @@ class _SumOfNumbersScreenState extends State<SumOfNumbersScreen> {
       int num3 = int.tryParse(num3Controller.text) ?? 0;
       int num4 = int.tryParse(num4Controller.text) ?? 0;
 
-      result = 'Sum: ${num1 + num2 + num3 + num4}';
+      result = 'Sum : ${num1 + num2 + num3 + num4}';
      });
   }
   void calculateSumeven() {
@@ -49,7 +51,45 @@ class _SumOfNumbersScreenState extends State<SumOfNumbersScreen> {
       evenNumbers.add(numbers);}}
       for (int numbers in evenNumbers) {
       sumeven += numbers;
-      result2 = '$sumeven';
+      result2 = 'Sum : $sumeven';
+      }
+      });
+  }
+  void calculateSumOdd() {
+    setState(() {
+      int num1 = int.tryParse(num1Controller.text) ?? 0;
+      int num2 = int.tryParse(num2Controller.text) ?? 0;
+      int num3 = int.tryParse(num3Controller.text) ?? 0;
+      int num4 = int.tryParse(num4Controller.text) ?? 0;
+
+      List<int> evennum = [num1, num2, num3, num4];
+      List<int> oddNumbers = [];
+      int sumodd = 0;
+      for (int numbers in evennum) {
+      if (numbers %2 != 0) {
+      oddNumbers.add(numbers);}}
+      for (int numbers in oddNumbers) {
+      sumodd += numbers;
+      result3 = 'Sum : $sumodd';
+      }
+      });
+  }
+  void calculateSumdivi3() {
+    setState(() {
+      int num1 = int.tryParse(num1Controller.text) ?? 0;
+      int num2 = int.tryParse(num2Controller.text) ?? 0;
+      int num3 = int.tryParse(num3Controller.text) ?? 0;
+      int num4 = int.tryParse(num4Controller.text) ?? 0;
+
+      List<int> evennum = [num1, num2, num3, num4];
+      List<int> divi3Numbers = [];
+      int sumdivi3 = 0;
+      for (int numbers in evennum) {
+      if (numbers %3 == 0) {
+      divi3Numbers.add(numbers);}}
+      for (int numbers in divi3Numbers) {
+      sumdivi3 += numbers;
+      result4 = 'Sum : $sumdivi3';
       }
       });
   }
@@ -92,12 +132,29 @@ class _SumOfNumbersScreenState extends State<SumOfNumbersScreen> {
               Text(
                 result,
                 style: TextStyle(fontSize: 20),
-              ),ElevatedButton(
+              ),
+              ElevatedButton(
                 onPressed: calculateSumeven,
-                child: Text('Sum even'),
+                child: Text('Sum Even'),
               ),
               Text(
                 result2,
+                style: TextStyle(fontSize: 20),
+              ),
+              ElevatedButton(
+                onPressed: calculateSumOdd,
+                child: Text('Sum Odd'),
+              ),
+              Text(
+                result3,
+                style: TextStyle(fontSize: 20),
+              ),
+              ElevatedButton(
+                onPressed: calculateSumdivi3,
+                child: Text('Sum Divisible by 3'),
+              ),
+              Text(
+                result4,
                 style: TextStyle(fontSize: 20),
               ),
             ],

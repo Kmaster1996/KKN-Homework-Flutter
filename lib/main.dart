@@ -97,7 +97,7 @@ class _SumOfNumbersScreenState extends State<SumOfNumbersScreen> {
                 child: Text('Sum even'),
               ),
               Text(
-                result,
+                result2,
                 style: TextStyle(fontSize: 20),
               ),
             ],

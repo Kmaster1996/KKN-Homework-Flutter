@@ -93,6 +93,19 @@ class _SumOfNumbersScreenState extends State<SumOfNumbersScreen> {
       }
       });
   }
+  void clearresult() {
+    setState(() {
+      int num1 = int.tryParse(num1Controller.text) ?? 0;
+      int num2 = int.tryParse(num2Controller.text) ?? 0;
+      int num3 = int.tryParse(num3Controller.text) ?? 0;
+      int num4 = int.tryParse(num4Controller.text) ?? 0;
+      
+      result = '';
+      result2 = '';
+      result3 = '';
+      result4 = '';
+     });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -156,6 +169,10 @@ class _SumOfNumbersScreenState extends State<SumOfNumbersScreen> {
               Text(
                 result4,
                 style: TextStyle(fontSize: 20),
+              ),
+              ElevatedButton(
+                onPressed: clearresult,
+                child: Text('Clear Result'),
               ),
             ],
           ),
